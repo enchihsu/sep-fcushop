@@ -36,8 +36,8 @@
             商品管理
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">新增商品</a></li>
-            <li><a class="dropdown-item" href="#">修改商品</a></li>
+            <li><a class="dropdown-item" href="manage.html">新增商品</a></li>
+            <li><a class="dropdown-item" href="update.html">修改商品</a></li>
           </ul>
         </li>
       </ul>
@@ -58,10 +58,10 @@
         </li>
       </ul>
 
-      <form class="d-flex">
-        <input class="form-control " type="text" placeholder="商品名稱" aria-label="product name" aria-describedby="searchProduct" id="productKeyword">
-        <button class="btn btn-outline-success" type="button" id="searchProduct">Search</button>
-      </form>
+      <!--<form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>-->
     </div>
   </div>
 </nav>
@@ -69,6 +69,10 @@
 <div class="container">
   <h1 class="mt-3">My Shop</h1>
 
+  <div class="input-group mb-3 mt-5">
+    <input type="text" class="form-control" placeholder="商品名稱" aria-label="product name" aria-describedby="searchProduct" id="productKeyword">
+    <button class="btn btn-outline-secondary" type="button" id="searchProduct">搜尋</button>
+  </div>
 
 
   <div class="mt-3 row" id="productList">
@@ -158,6 +162,7 @@
           console.log( "The request is complete!" );
         });
     }
-    </script>
+
+</script>
 </body>
 </html>

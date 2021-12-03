@@ -29,10 +29,10 @@ public class ProductService {
   public List<Product> getProducts(String keyword) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "select ID id, NAME name, IMAGE_URL imageUrl, PRICE price, DESCRIPTION description"
-          + " from PRODUCT where NAME=:keyword";
+          + " from PRODUCT where name like :keyword";
 
       return connection.createQuery(query)
-        .addParameter("keyword",keyword)
+        .addParameter("keyword","%"+keyword+"%")
         .executeAndFetch(Product.class);
     }
   }
