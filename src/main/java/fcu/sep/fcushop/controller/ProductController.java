@@ -5,7 +5,13 @@ import fcu.sep.fcushop.model.Product;
 import fcu.sep.fcushop.service.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *this is a class for get product information.
@@ -27,26 +33,24 @@ public class ProductController {
     return productManager.getProducts(keyword);
   }
 
-  @RequestMapping(value="/add_product", method = RequestMethod.GET)
+  @RequestMapping(value = "/add_product", method = RequestMethod.GET)
   @ResponseBody
   public String addProduct(
-      @RequestParam("book_name") String book_name,
-      @RequestParam("img_url") String img_url,
+      @RequestParam("bookname") String bookname,
+      @RequestParam("imgurl") String imgurl,
       @RequestParam("price") Integer price,
       @RequestParam("description") String description
-  )
-  {
-    return productManager.AddProduct(book_name, img_url, price, description);
+  ) {
+    return productManager.addProduct(bookname, imgurl, price, description);
   }
 
-  @RequestMapping(value="/update_product", method = RequestMethod.GET)
+  @RequestMapping(value = "/update_product", method = RequestMethod.GET)
   @ResponseBody
   public String updateProduct(
-      @RequestParam("book_name") String book_name,
+      @RequestParam("name") String name,
       @RequestParam("price") Integer price
-  )
-  {
-    return productManager.UpdateProduct(book_name, price);
+  ) {
+    return productManager.updateProduct(name, price);
   }
 
 }

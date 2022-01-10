@@ -60,17 +60,17 @@
 </nav>
 
 <section>
-    <form id="new_product_form">
-
+    <form id="new_product_form" align="center" >
+        <h2>修改商品</h2>
         <div class="form-group">
-            <label>Name:</label>
+            <label>遊戲名字&nbsp:</label>
             <input type="text" id="book_name_text" aria-label="book_name_text">
         </div>
         <div class="form-group">
-            <label>Price:</label>
+            <label>價格&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
             <input type="text" id="price_text">
         </div>
-        <button class="btn btn-primary btn-sm" type="button" id="add_button">Update</button>
+        <button class="btn btn-primary btn-sm" type="button" id="update_button">Update</button>
     </form>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -88,8 +88,8 @@
 </section>
 <script>
     var i = 0;
-    $('#add_button').click( function(){
-        //$('#game_name_text').val(++i);
+    $('#update_button').click( function(){
+        //$('#book_name_text').val(++i);
         update_product();
     });
 
@@ -100,8 +100,8 @@
             url: "update_product" ,
 
             data: {
-                book_name : $('#book_name_text').val(),
-                price : $('#price_text').val(),
+                name : $('#book_name_text').val(),
+                price : $('#price_text').val()
             },
 
             // Whether this is a POST or GET request
@@ -112,7 +112,7 @@
         })
         .done(function( text ) {
             if(text == "Success")
-                alert("pass");
+                alert("update success");
             else
                 alert("fail");
         })
